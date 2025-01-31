@@ -3,6 +3,7 @@ package tech.learn;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import tech.learn.array.SecondLargestNumber;
 
 /**
  * Unit test for simple App.
@@ -34,5 +35,10 @@ public class AppTest
     public void testApp()
     {
         assertTrue( true );
+    }
+
+    public void testFindSecondLargestNumber() {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        assertEquals(8, new SecondLargestNumber().apply(arr).intValue());
     }
 }
