@@ -1,34 +1,24 @@
 package tech.learn.array;
 
-import java.util.Arrays;
-import java.util.function.Function;
-import java.util.stream.IntStream;
+import java.util.function.ToIntFunction;
 
-public class MaximumProductSubarray implements Function<int[], Integer> {
+public class MaximumProductSubarray implements ToIntFunction<int[]> {
     @Override
-    public Integer apply(int[] ints) {
-
+    public int applyAsInt(int[] ints) {
         int n = ints.length;
 
-        int[] maxArray = new int[n];
-        int[] minArray = new int[n];
+        int globalMax = ints[0];
+        int currentMax = ints[0];
+        int currentMin = ints[0];
 
-        Arrays.fill(maxArray, -1);
-        Arrays.fill(minArray, -1);
+        for(int i = 1; i < n; i++) {
+            int temp = Math.max(ints[i], Math.max(currentMax * ints[i], currentMin * ints[i]));
+            currentMin = Math.min(ints[i], Math.max(currentMax * ints[i], currentMin * ints[i]));
+            currentMax = temp;
 
-        maxArray[0] = ints[0];
-        minArray[0] = ints[0];
-
-        for(int i = 1; i<n; i++) {
-            if(ints[i] == 0) {
-                maxArray[i] = 1;
-                minArray[i] = 1;
-            } else {
-                maxArray[i] = Math.max(Math.max(minArray[i-1] * ints[i], maxArray[i-1] * ints[i]), ints[i]);
-                minArray[i] = Math.min(Math.min(minArray[i-1] * ints[i], maxArray[i-1] * ints[i]), ints[i]);
-            }
+            globalMax = Math.max(currentMax, globalMax);
         }
 
-        return IntStream.of(maxArray).max().getAsInt();
+        return globalMax;
     }
 }

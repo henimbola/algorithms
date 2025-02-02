@@ -1,11 +1,12 @@
 package tech.learn.array;
 
 import java.util.function.Function;
+import java.util.function.ToIntFunction;
 
-public class ThirdLargestNumber implements Function<int[], Integer> {
+public class ThirdLargestNumber implements ToIntFunction<int[]> {
 
     @Override
-    public Integer apply(int[] array) {
+    public int applyAsInt(int[] array) {
 
         int first = array[0], second = Integer.MIN_VALUE, third = Integer.MIN_VALUE;
 

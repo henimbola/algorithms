@@ -1,11 +1,11 @@
 package tech.learn.array;
 
-import java.util.function.Function;
+import java.util.function.ToIntFunction;
 
-public class SecondLargestNumber implements Function<int[], Integer> {
+public class SecondLargestNumber implements ToIntFunction<int[]> {
 
     @Override
-    public Integer apply(int[] arr) {
+    public int applyAsInt(int[] arr) {
         int max = -1;
         int secondMax = -1;
 

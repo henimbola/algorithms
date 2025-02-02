@@ -1,11 +1,11 @@
 package tech.learn.array;
 
 import java.util.Arrays;
-import java.util.function.Function;
+import java.util.function.ToIntFunction;
 
-public class MaximumProductOfATriplet implements Function<int[], Integer> {
+public class MaximumProductOfATriplet implements ToIntFunction<int[]> {
     @Override
-    public Integer apply(int[] array) {
+    public int applyAsInt(int[] array) {
         int maxProduct = Integer.MIN_VALUE;
         int n = array.length;
 

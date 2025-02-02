@@ -2,11 +2,11 @@ package tech.learn.array;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
-import java.util.function.Function;
+import java.util.function.ToIntFunction;
 
-public class MaximumProductOfATripletPriorityQueue implements Function<int[], Integer> {
+public class MaximumProductOfATripletPriorityQueue implements ToIntFunction<int[]> {
     @Override
-    public Integer apply(int[] ints) {
+    public int applyAsInt(int[] ints) {
         if (ints.length < 3) {
             return -1;
         }
