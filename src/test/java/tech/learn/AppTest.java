@@ -14,6 +14,11 @@ public class AppTest extends TestCase {
         assertEquals(8, new SecondLargestNumber().applyAsInt(arr));
     }
 
+    public void testFindSecondLargestNumber2() {
+        int[] arr = {8, 3, 4, 4};
+        assertEquals(4, new SecondLargestNumber().applyAsInt(arr));
+    }
+
     public void testFindThirdLargestNumber() {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         assertEquals(7, new ThirdLargestNumber().applyAsInt(arr));
@@ -62,8 +67,55 @@ public class AppTest extends TestCase {
         assertEquals(4, new MaxConsecutiveOnes().applyAsInt(arr));
     }
 
-    public void testMoveAllZerosToEdn() {
+    public void testMoveAllZerosToEnd() {
         int[] arr = {0, 1, 0, 3, 12};
-        System.out.println(Arrays.toString(new MoveAllZerosToEnd().apply(arr)));
+        assertTrue(Arrays.equals(new MoveAllZerosToEnd().apply(arr), new int[]{1, 3, 12, 0, 0}));
+    }
+
+    public void testReverseArray() {
+        int[] arr = {0, 1, 0, 3, 12};
+        assertTrue(Arrays.equals(new ReverseArray().apply(arr), new int[]{12, 3, 0, 1, 0}));
+    }
+
+    public void testReverseGroupedArray() {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
+        int k = 3;
+
+        assertTrue(Arrays.equals(new ReverseGroupedArray().apply(arr, k), new int[]{3, 2, 1, 6, 5, 4, 8, 7}));
+    }
+
+    public void testString() {
+        String test = "dfa12321afd";
+
+        secondMax(test);
+    }
+
+    public void testString2() {
+        String test = "abc1111";
+
+        secondMax(test);
+    }
+
+    public void testString3() {
+        String test = "sjhtz8344";
+
+        secondMax(test);
+    }
+
+    private void secondMax(String s) {
+        int max = -1;
+        int sMax = -1;
+
+        for(char j: s.toCharArray()) {
+            if(Character.isDigit(j) && Integer.parseInt(String.valueOf(j)) > max) {
+                sMax = max;
+                max = Integer.parseInt(String.valueOf(j));
+            }
+            else if(Character.isDigit(j) && Integer.parseInt(String.valueOf(j)) > sMax && Integer.parseInt(String.valueOf(j)) < max) {
+                sMax = Integer.parseInt(String.valueOf(j));
+            }
+        }
+
+        System.out.println(sMax);
     }
 }

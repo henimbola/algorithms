@@ -13,6 +13,8 @@ public class SecondLargestNumber implements ToIntFunction<int[]> {
             if (j > max) {
                 secondMax = max;
                 max = j;
+            } else if (max > j && secondMax < j) {
+                secondMax = j;
             }
         }
 
