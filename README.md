@@ -1,4 +1,4 @@
-# My DSA learning
+# My DSA practice repository
 
 This project is where I am saving all the code I write while learning Data Structures and Algorithms.
 We divided it into categories, and each category has its own package.
